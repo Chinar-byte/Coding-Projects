@@ -28,10 +28,15 @@ By the end you’ll have:
 🎯 **Goal:** DS&A speed + probability/stats basics
 
 ### Week 1 – Sorting/Searching + Probability
-**LeetCode Set:** Binary search, rotated arrays, Kth largest.  
+**LeetCode Set:** 
+- Binary search
+- rotated arrays
+- Kth largest
+
 🧩 Systems bite: **In-memory cache (like Redis)**  
 - Implement `get`/`put` with HashMap.  
-- Add eviction policy if >N entries.  
+- Add eviction policy if >N entries.
+  
 💻 Project: **Coin-flip betting simulator**  
 - Simulate 10,000 flips, track bankroll.  
 - Print average profit/loss.
