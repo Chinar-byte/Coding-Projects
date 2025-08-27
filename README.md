@@ -29,7 +29,7 @@ By the end you’ll have:
 
 ### Week 1 – Sorting/Searching + Probability
 **LeetCode Set:** 
-- Binary search
+- Binary search: https://leetcode.com/problems/binary-search/
 - rotated arrays
 - Kth largest
 
