@@ -1,157 +1,98 @@
-# 12-Week SWE/Trading Prep Roadmap
+# 12-Week Integrated Roadmap: Real-Time Trading Simulator & Dashboard
 
-This roadmap balances **DS&A practice (LeetCode)**, **systems design exercises ("systems bites")**, and **mini coding projects ("projects")**.  
-You’ll spend about **4 hrs per week** (≈2 hrs DS&A, ≈1 hr systems bite, ≈1 hr project).
+**Languages:** Java → Python → TypeScript/React  
+**Weekly time commitment:** ~4 hours (2 DS&A, 1 system bite, 1 project/capstone work)  
 
----
-
-## 📝 How to Use This Roadmap
-
-- **Systems Bite 🧩** = a **tiny design exercise**, like a system design interview question.  
-  - Output: diagram, notes, or a quick prototype (30–40 lines).  
-  - Purpose: practice thinking about scalability, trade-offs, concurrency.  
-  - Not necessarily portfolio code — more about *conceptual fluency*.  
-
-- **Project 💻** = a **small coding mini-project** (50–150 lines).  
-  - Output: runnable program/script you can commit to GitHub.  
-  - Purpose: demonstrate end-to-end implementation skills.  
-  - These are *portfolio-worthy* and can build toward your capstone.  
-
-By the end you’ll have:  
-- ~12 **systems bites** (conceptual + sketches).  
-- ~12 **mini-projects** (portfolio-ready code).  
-- 1 **capstone project** (Weeks 11–12).  
+**Capstone:** Full-stack Real-Time Trading Simulator with Market Simulation, Risk Checks, Backtesting, and Dashboard
 
 ---
 
-## Phase 1 – Java (Weeks 1–4)
-🎯 **Goal:** DS&A speed + probability/stats basics
+## Phase 1 – Core Mechanics & Data Structures (Weeks 1–4, Java)
 
-### Week 1 – Sorting/Searching + Probability
-**LeetCode Set:** 
-- Binary search: https://leetcode.com/problems/binary-search/
-- rotated arrays
-- Kth largest
+### Week 1
+- **DS&A (LeetCode):** Binary Search, Search in Rotated Sorted Array, Kth Largest  
+- **Systems Bite 🧩:** In-memory cache (track account balances & positions)  
+- **Capstone Feature 💻:** Basic simulation engine: “Coin-flip” trades, track balance, simple random orders  
 
-🧩 Systems bite: **In-memory cache (like Redis)**  
-- Implement `get`/`put` with HashMap.  
-- Add eviction policy if >N entries.
-  
-💻 Project: **Coin-flip betting simulator**  
-- Simulate 10,000 flips, track bankroll.  
-- Print average profit/loss.
+### Week 2
+- **DS&A (LeetCode):** Stack, Queue, LRU Cache, Linked List  
+- **Systems Bite 🧩:** URL Shortener → map orders to trade IDs  
+- **Capstone Feature 💻:** Build **limit order book** using heaps: addOrder(), matchOrders()  
 
-### Week 2 – Core Data Structures + Combinatorics
-**LeetCode Set:** Stacks, queues, LRU cache, linked list.  
-🧩 Systems bite: **URL Shortener**  
-- Encode integer counter to base62.  
-- Map short → long URL.  
-💻 Project: **Random Order-Book Simulator**  
-- Maintain bids/asks in heaps.  
-- Print best bid/ask.  
+### Week 3
+- **DS&A (LeetCode):** Coin Change, Longest Increasing Subsequence, Knapsack  
+- **Systems Bite 🧩:** Token Bucket → rate-limit trades  
+- **Capstone Feature 💻:** Pre-trade **risk checks**: max order size, margin limits; reject invalid orders  
 
-### Week 3 – Dynamic Programming + Stats
-**LeetCode Set:** Coin change, LIS, knapsack.  
-🧩 Systems bite: **Rate Limiter**  
-- Implement token bucket.  
-- Allow N requests/sec.  
-💻 Project: **Monte Carlo Option Pricer**  
-- Simulate European call option payoff.  
-- Average discounted result.
-
-### Week 4 – Graphs + Probability Distributions
-**LeetCode Set:** Islands, clone graph, course schedule.  
-🧩 Systems bite: **Leaderboard System**  
-- Maintain top-K scores in real time.  
-- Functions: `updateScore`, `getTopK(k)`.  
-💻 Project: **Random Walk Simulation**  
-- Run 1000 walks of 1000 steps.  
-- Show histogram convergence to normal.
+### Week 4
+- **DS&A (LeetCode):** Graphs: Number of Islands, Clone Graph, Course Schedule  
+- **Systems Bite 🧩:** Leaderboard → track top traders by PnL  
+- **Capstone Feature 💻:** Monte Carlo **market simulation**: random walk prices, simulate order execution against market  
 
 ---
 
-## Phase 2 – Python (Weeks 5–8)
-🎯 **Goal:** Trading sims + concurrency/networking
+## Phase 2 – Concurrency & Analytics (Weeks 5–8, Python)
 
-### Week 5 – Bitwise/Math + Pub/Sub
-**LeetCode Set:** Bit ops, power of two, sqrt.  
-🧩 Systems bite: **Pub/Sub Feed**  
-- Dict of `{topic: [subscribers]}`.  
-- Support `subscribe`, `publish`.  
-💻 Project: **Prime Sieve Benchmark**  
-- Sieve of Eratosthenes up to 1e6.  
-- Compare vs naive prime check.
+### Week 5
+- **DS&A (LeetCode):** Bitwise ops: Power of Two, Sqrt, Single Number  
+- **Systems Bite 🧩:** Pub/Sub → subscribers receive events  
+- **Capstone Feature 💻:** Event system: traders subscribe to price feed updates and order confirmations  
 
-### Week 6 – Concurrency & Networking
-**LeetCode Set:** Circular queue, sliding window, hit counter.  
-🧩 Systems bite: **Chat System**  
-- Server accepts multiple clients.  
-- Broadcast messages.  
-💻 Project: **Async Chat Server**  
-- Use `asyncio` streams.  
-- Log latency per message.
+### Week 6
+- **DS&A (LeetCode):** Circular Queue, Sliding Window, Hit Counter  
+- **Systems Bite 🧩:** Async Chat System → multiple clients  
+- **Capstone Feature 💻:** Real-time trade logging, broadcast messages, measure latency  
 
-### Week 7 – Market Microstructure
-**LeetCode Set:** Median finder, top-K, task scheduler.  
-🧩 Systems bite: **Trading Engine**  
-- Extend order book to match trades.  
-- Execute if bid ≥ ask.  
-💻 Project: **Limit Order Book Simulator**  
-- `add_order`, `cancel_order`.  
-- Print trades + updated book.
+### Week 7
+- **DS&A (LeetCode):** Median Finder, Top-K, Task Scheduler  
+- **Systems Bite 🧩:** Trading Engine → auto-match trades  
+- **Capstone Feature 💻:** Extend order book: auto-execute trades, track volume & bid-ask spread analytics  
 
-### Week 8 – Risk & Portfolio
-**LeetCode Set:** Intervals, meeting rooms, gas station.  
-🧩 Systems bite: **Pre-Trade Risk Check**  
-- Block trades > $1m notional.  
-- Integrate into order book flow.  
-💻 Project: **Markowitz Optimizer**  
-- Compute optimal weights for 3 assets.  
-- Use covariance + returns.
+### Week 8
+- **DS&A (LeetCode):** Intervals: Meeting Rooms, Gas Station, Insert Interval  
+- **Systems Bite 🧩:** Pre-Trade Risk Check → block large trades  
+- **Capstone Feature 💻:** Portfolio analytics: Markowitz optimization with risk constraints, dynamic position checks  
 
 ---
 
-## Phase 3 – TypeScript + Mixed (Weeks 9–12)
-🎯 **Goal:** Full-stack capstone + mock assessments
+## Phase 3 – Full-Stack & Dashboard (Weeks 9–12, TypeScript/React)
 
-### Week 9 – Mock Contest + Pairs Trading
-**LeetCode Contest Warmups:** Two Sum, Anagrams, String Compression.  
-🧩 Systems bite: **Scaling Backtests**  
-- Sketch sharding by ticker, worker pool.  
-💻 Project: **Pairs Trading Backtest**  
-- Use 2 stock CSVs.  
-- Trade when z-score diverges.  
-- Plot PnL in React/TS.
+### Week 9
+- **DS&A (LeetCode):** Two Sum, Valid Anagram, String Compression  
+- **Systems Bite 🧩:** Scaling Backtests → sharding by ticker, worker pool  
+- **Capstone Feature 💻:** Backtesting module: pairs trading backtest, trade logs, PnL charts  
 
-### Week 10 – Probability Puzzles + Kelly Criterion
-**LeetCode Set:** Random pick, shuffle, randomized set.  
-🧩 Systems bite: **Job Scheduler**  
-- Master assigns tasks, workers execute.  
-💻 Project: **Kelly Criterion Simulator**  
-- Python: bankroll growth curve.  
-- TS: slider adjusts bet fraction.
+### Week 10
+- **DS&A (LeetCode):** Random Pick, Shuffle, Randomized Set  
+- **Systems Bite 🧩:** Job Scheduler → master assigns tasks to workers  
+- **Capstone Feature 💻:** Real-time **dashboard**: live order book, price charts, trader leaderboard  
 
-### Week 11 – Capstone Build
-**LeetCode Design Problems:** Twitter, Underground, Logger limiter.  
-🧩 Systems bite: **Architecture Tradeoffs**  
-- Document caching/scaling/fault-tolerance.  
-💻 Project Options:  
-- Option A: **Real-time stock dashboard** (Next.js + WebSockets).  
-- Option B: **Distributed backtester** (Ray/Dask + TS frontend).
+### Week 11
+- **DS&A (LeetCode):** Design Twitter, Underground, Logger Rate Limiter  
+- **Systems Bite 🧩:** Architecture Tradeoffs → caching, fault-tolerance  
+- **Capstone Feature 💻:** Integrate **backend (Java/Python) with frontend (React/TS)** via WebSockets; full system end-to-end  
 
-### Week 12 – Mock Interviews + Polish
-**Optional Review Problems:** Serialize/deserialize tree, consistent hashing (DIY).  
-🧩 Systems bite: **Failover Design**  
-- Sketch redundant servers + retries.  
-💻 Project: **Capstone Polish**  
-- Write README, diagrams, screenshots.  
-- Push final project to GitHub.
+### Week 12
+- **DS&A (LeetCode):** Serialize/Deserialize Tree, Consistent Hashing  
+- **Systems Bite 🧩:** Failover Design → redundant servers, retries  
+- **Capstone Feature 💻:** Polish & deploy: README, diagrams, screenshots, unit tests, GitHub portfolio-ready project  
 
 ---
 
-## ✅ Outcome
-By the end, you’ll have:
-- Java DS&A repo (Weeks 1–4).  
-- Python quant + systems repo (Weeks 5–8).  
-- TypeScript full-stack project repo (Weeks 9–12).  
-- A polished **capstone project** ready for GitHub portfolio.
+## Key Features Integrated
+- **DS&A practice:** 36+ LeetCode problems covering arrays, heaps, graphs, dynamic programming, concurrency, and system design-related algorithms.  
+- **Systems design practice:** 12 “mini” exercises building up understanding of caching, rate-limiting, pub/sub, leaderboards, scaling, and fault-tolerance.  
+- **Portfolio project:** One cohesive system that grows weekly:
+  - Java engine → Python real-time & analytics → TypeScript frontend  
+  - Features: limit order book, market simulation, risk checks, auto-trading, backtesting, dashboard  
+  - Ready for GitHub with documentation, diagrams, and screenshots.  
+
+---
+
+## How to Execute
+1. **Weekly structure (~4 hours/week):**  
+   - 2 hrs LeetCode problems (focus on speed and problem patterns)  
+   - 1 hr systems bite (write notes, draw diagrams, or prototype small module)  
+   - 1 hr capstone feature integration (extend the main project)  
+2. **Cumulative development:** Each week’s project work builds on prior weeks → by Week 12, a fully functional, deployable trading simulator.  
+3. **Portfolio readiness:** Weekly commits to GitHub with meaningful messages; final polish in Week 12.
